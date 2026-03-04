@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natuurspeeltuin Megen — Graaf van Megen</title>
+    <meta name="description" content="Natuurspeeltuin Megen: een speeltuin voor jong en oud aan de Maasdijk. Gratis toegankelijk, elke dag van 8u tot 20u. Natuur, beweging en avontuur!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&family=Varela+Round&display=swap" rel="stylesheet">
+    <script defer src="https://analytics.code-lieshout.nl/script.js" data-website-id="9d6671f6-60b6-4474-a0fe-86c390bcb790"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#059669',
+                        'primary-dark': '#047857',
+                        'primary-light': '#34D399',
+                        secondary: '#6EE7B7',
+                        cta: '#FBBF24',
+                        'cta-hover': '#F59E0B',
+                        bg: '#ECFDF5',
+                        'bg-alt': '#D1FAE5',
+                        'text-main': '#064E3B',
+                        'text-muted': '#065F46',
+                    },
+                    fontFamily: {
+                        heading: ['Varela Round', 'sans-serif'],
+                        body: ['Nunito Sans', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'soft': '10px',
+                        'card': '12px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Nunito Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Varela Round', sans-serif; }
+        .shadow-soft { box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08), 0 1px 3px rgba(0,0,0,0.06); }
+        .shadow-soft-hover { box-shadow: 0 4px 16px rgba(5, 150, 105, 0.15), 0 2px 6px rgba(0,0,0,0.08); }
+        :focus-visible { outline: 3px solid #059669; outline-offset: 2px; border-radius: 4px; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+        .hero-overlay { background: linear-gradient(to bottom, rgba(6,78,59,0.5), rgba(5,150,105,0.3)); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #FBBF24; transition: width 200ms ease; }
+        .nav-link:hover::after { width: 100%; }
+    </style>
+</head>
+<body class="bg-bg text-text-main antialiased">
+    <!-- Skip Link -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-soft focus:z-50">Ga naar inhoud</a>
+
+    <!-- Navbar -->
+    <nav class="bg-white/90 backdrop-blur-sm shadow-soft sticky top-0 z-40" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 cursor-pointer" aria-label="Home">
+                    <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    <span class="font-heading text-lg text-primary font-bold">Natuurspeeltuin Megen</span>
+                </a>
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="index.html" class="nav-link px-3 py-2 text-sm font-semibold text-primary cursor-pointer rounded-soft hover:bg-bg-alt transition-colors duration-200">Home</a>
+                    <a href="de-natuurspeeltuin.html" class="nav-link px-3 py-2 text-sm font-medium text-text-muted cursor-pointer rounded-soft hover:bg-bg-alt transition-colors duration-200">De Speeltuin</a>
+                    <a href="bewegingsroute.html" class="nav-link px-3 py-2 text-sm font-medium text-text-muted cursor-pointer rounded-soft hover:bg-bg-alt transition-colors duration-200">Bewegingsroute</a>
+                    <a href="activiteiten.html" class="nav-link px-3 py-2 text-sm font-medium text-text-muted cursor-pointer rounded-soft hover:bg-bg-alt transition-colors duration-200">Activiteiten</a>
+                    <a href="doe-kaarten.html" class="nav-link px-3 py-2 text-sm font-medium text-text-muted cursor-pointer rounded-soft hover:bg-bg-alt transition-colors duration-200">Doe-kaarten</a>
+                    <a href="kinderroute.html" class="nav-link px-3 py-2 text-sm font-medium text-text-muted cursor-pointer rounded-soft hover:bg-bg-alt transition-colors duration-200">Kinderroute</a>
+                    <a href="natuurroute.html" class="nav-link px-3 py-2 text-sm font-medium text-text-muted cursor-pointer rounded-soft hover:bg-bg-alt transition-colors duration-200">Natuur</a>
+                    <a href="contact.html" class="nav-link px-3 py-2 text-sm font-semibold text-white bg-primary cursor-pointer rounded-soft hover:bg-primary-dark transition-colors duration-200">Contact</a>
+                </div>
+                <button id="menuBtn" class="lg:hidden p-2 rounded-soft cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-bg-alt transition-colors duration-200" aria-label="Menu openen" aria-expanded="false">
+                    <svg class="w-6 h-6 text-text-main" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black/50 z-50 hidden" aria-hidden="true">
+        <div class="absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6 overflow-y-auto">
+            <button id="closeMenu" class="absolute top-4 right-4 p-2 rounded-soft cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-bg-alt transition-colors duration-200" aria-label="Menu sluiten">
+                <svg class="w-6 h-6 text-text-main" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <nav class="mt-12 flex flex-col gap-2" aria-label="Mobiel menu">
+                <a href="index.html" class="px-4 py-3 text-base font-semibold text-primary rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Home</a>
+                <a href="de-natuurspeeltuin.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">De Speeltuin</a>
+                <a href="bewegingsroute.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Bewegingsroute</a>
+                <a href="activiteiten.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Activiteiten</a>
+                <a href="doe-kaarten.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Doe-kaarten</a>
+                <a href="kinderroute.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Kinderroute</a>
+                <a href="klimopvergroent.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Klimop Vergroent</a>
+                <a href="natuurroute.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Natuur & Educatie</a>
+                <a href="sponsors.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Sponsors</a>
+                <a href="samenwerkingen.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Samenwerkingen</a>
+                <a href="toegankelijkheid.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Toegankelijkheid</a>
+                <a href="helpen.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Helpen?</a>
+                <a href="zelf-initiatief.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Zelf Starten</a>
+                <a href="locatie.html" class="px-4 py-3 text-base font-medium text-text-muted rounded-soft hover:bg-bg-alt cursor-pointer transition-colors duration-200">Locatie</a>
+                <a href="contact.html" class="px-4 py-3 text-base font-semibold text-white bg-primary rounded-soft hover:bg-primary-dark cursor-pointer text-center transition-colors duration-200">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+            <img src="images/hero-panorama.jpg" alt="Natuurspeeltuin Megen panorama" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+            <div class="hero-overlay absolute inset-0"></div>
+            <div class="relative z-10 text-center px-4 md:px-6 max-w-3xl mx-auto">
+                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-4 drop-shadow-lg">Natuurspeeltuin Megen</h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 font-medium">Een speeltuin voor jong en oud. Natuur, beweging en avontuur aan de Maas. Gratis toegankelijk, elke dag.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="de-natuurspeeltuin.html" class="inline-flex items-center justify-center px-6 py-3 bg-cta text-text-main font-bold rounded-soft shadow-soft hover:bg-cta-hover hover:shadow-soft-hover transition-all duration-200 cursor-pointer min-h-[44px]">
+                        Ontdek de Speeltuin
+                    </a>
+                    <a href="locatie.html" class="inline-flex items-center justify-center px-6 py-3 bg-white/20 text-white font-semibold rounded-soft border-2 border-white/40 hover:bg-white/30 transition-all duration-200 cursor-pointer min-h-[44px]">
+                        Locatie &amp; Route
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights -->
+        <section class="py-16 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-card p-6 shadow-soft text-center hover:shadow-soft-hover transition-all duration-200">
+                    <div class="w-12 h-12 bg-bg-alt rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-lg text-text-main mb-2">Elke dag open</h3>
+                    <p class="text-sm text-text-muted">Van 8:00 tot 20:00 uur. Gratis toegang voor iedereen.</p>
+                </div>
+                <div class="bg-white rounded-card p-6 shadow-soft text-center hover:shadow-soft-hover transition-all duration-200">
+                    <div class="w-12 h-12 bg-bg-alt rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-lg text-text-main mb-2">Voor jong &amp; oud</h3>
+                    <p class="text-sm text-text-muted">Speeltuin, bewegingsroute en doe-kaarten voor alle leeftijden.</p>
+                </div>
+                <div class="bg-white rounded-card p-6 shadow-soft text-center hover:shadow-soft-hover transition-all duration-200">
+                    <div class="w-12 h-12 bg-bg-alt rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-lg text-text-main mb-2">Natuur &amp; educatie</h3>
+                    <p class="text-sm text-text-muted">Leer over de natuur, de Maas, en de geschiedenis van Megen.</p>
+                </div>
+                <div class="bg-white rounded-card p-6 shadow-soft text-center hover:shadow-soft-hover transition-all duration-200">
+                    <div class="w-12 h-12 bg-bg-alt rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="font-heading text-lg text-text-main mb-2">Toegankelijk</h3>
+                    <p class="text-sm text-text-muted">Verharde paden, brede doolhof. Alle kinderen kunnen hier spelen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Over de Speeltuin -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-sm font-semibold text-primary uppercase tracking-wider">Welkom bij</span>
+                        <h2 class="font-heading text-3xl md:text-4xl text-text-main mt-2 mb-6">Graaf van Megen</h2>
+                        <p class="text-text-muted mb-4 leading-relaxed">Vroeger was Megen een zelfstandig graafschap. In de speeltuin ga je een stukje terug in de tijd. Stap binnen onder de Maaspoort, beklim de gevangenentoren en verover de vlag van Megen via de hindernisroute!</p>
+                        <p class="text-text-muted mb-6 leading-relaxed">Zomer 2018 in Megen: er wordt volop gebruik gemaakt van de natuurspeeltuin. Kinderen spelen en beleven avonturen, leren over de werking van het water, de geschiedenis van Megen en de natuur. Gratis, elke dag te bezoeken.</p>
+                        <a href="de-natuurspeeltuin.html" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors duration-200 cursor-pointer">
+                            Lees het volledige verhaal
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="images/speeltuin-1.jpg" alt="Kinderen spelen in de natuurspeeltuin" class="rounded-card shadow-soft w-full h-48 object-cover" loading="lazy">
+                        <img src="images/google_place_1.jpg" alt="Natuurspeeltuin Megen" class="rounded-card shadow-soft w-full h-48 object-cover" loading="lazy">
+                        <img src="images/speeltuin-2.jpg" alt="Speeltoestellen in de speeltuin" class="rounded-card shadow-soft w-full h-48 object-cover" loading="lazy">
+                        <img src="images/muziekbal.jpg" alt="Muziekbal in de speeltuin" class="rounded-card shadow-soft w-full h-48 object-cover" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wat is er te doen? -->
+        <section class="py-16 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl md:text-4xl text-text-main mb-4">Wat is er te doen?</h2>
+                <p class="text-text-muted max-w-2xl mx-auto">Van klimmen en klauteren tot natuur ontdekken — er is voor iedereen iets te beleven.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="de-natuurspeeltuin.html" class="group bg-white rounded-card shadow-soft overflow-hidden hover:shadow-soft-hover transition-all duration-200 cursor-pointer">
+                    <img src="images/google_place_2.jpg" alt="Natuurspeeltuin" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg text-text-main mb-2 group-hover:text-primary transition-colors duration-200">De Natuurspeeltuin</h3>
+                        <p class="text-sm text-text-muted">Ontdek het kasteel, de gevangenentoren, de hindernisroute en de waterpomp.</p>
+                    </div>
+                </a>
+                <a href="bewegingsroute.html" class="group bg-white rounded-card shadow-soft overflow-hidden hover:shadow-soft-hover transition-all duration-200 cursor-pointer">
+                    <img src="images/speeltuin-3.jpg" alt="Bewegingsroute" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg text-text-main mb-2 group-hover:text-primary transition-colors duration-200">Bewegingsroute</h3>
+                        <p class="text-sm text-text-muted">7 oefeningen voor vitale ouderen met instrumenten van natuurlijke materialen.</p>
+                    </div>
+                </a>
+                <a href="doe-kaarten.html" class="group bg-white rounded-card shadow-soft overflow-hidden hover:shadow-soft-hover transition-all duration-200 cursor-pointer">
+                    <img src="images/bloemen.jpg" alt="Doe-kaarten natuur" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg text-text-main mb-2 group-hover:text-primary transition-colors duration-200">Doe-kaarten</h3>
+                        <p class="text-sm text-text-muted">Kaarten voor 6-9 en 9-12 jaar over natuur, geschiedenis en Megen.</p>
+                    </div>
+                </a>
+                <a href="kinderroute.html" class="group bg-white rounded-card shadow-soft overflow-hidden hover:shadow-soft-hover transition-all duration-200 cursor-pointer">
+                    <img src="images/muis.jpg" alt="Kinderroute Muis" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg text-text-main mb-2 group-hover:text-primary transition-colors duration-200">Kinderroute Megen</h3>
+                        <p class="text-sm text-text-muted">Loop mee door Megen en help Muis vriendjes vinden! Verhard pad, paar km.</p>
+                    </div>
+                </a>
+                <a href="natuurroute.html" class="group bg-white rounded-card shadow-soft overflow-hidden hover:shadow-soft-hover transition-all duration-200 cursor-pointer">
+                    <img src="images/natuur-1.jpg" alt="Natuur en educatie" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg text-text-main mb-2 group-hover:text-primary transition-colors duration-200">Natuur &amp; Educatie</h3>
+                        <p class="text-sm text-text-muted">Natuureducatie, vogelhuisjes, insectenhotel, bloemrijke dijk en meer.</p>
+                    </div>
+                </a>
+                <a href="activiteiten.html" class="group bg-white rounded-card shadow-soft overflow-hidden hover:shadow-soft-hover transition-all duration-200 cursor-pointer">
+                    <img src="images/activiteit-2024.jpg" alt="Activiteiten" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg text-text-main mb-2 group-hover:text-primary transition-colors duration-200">Activiteiten</h3>
+                        <p class="text-sm text-text-muted">Klusdagen, opschoonacties, pubquiz en meer. Bekijk de kalender!</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Reviews / Social Proof -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <div class="flex text-cta">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 fill-current opacity-70" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <span class="text-2xl font-heading font-bold text-text-main">4.6</span>
+                    </div>
+                    <h2 class="font-heading text-3xl text-text-main mb-2">Wat bezoekers zeggen</h2>
+                    <p class="text-text-muted">68 reviews op Google</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-bg rounded-card p-6 shadow-soft">
+                        <div class="flex text-cta mb-3">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-text-muted italic mb-4">"Prachtige natuurspeeltuin. Met een thema ingericht, de historie van Megen komt erin terug."</p>
+                        <p class="text-sm font-semibold text-text-main">A V</p>
+                    </div>
+                    <div class="bg-bg rounded-card p-6 shadow-soft">
+                        <div class="flex text-cta mb-3">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-text-muted italic mb-4">"Kleinschalige speeltuin, maar wel erg leuk. Een hele leuke glijbaan!"</p>
+                        <p class="text-sm font-semibold text-text-main">Jeffrey Tanis</p>
+                    </div>
+                    <div class="bg-bg rounded-card p-6 shadow-soft">
+                        <div class="flex text-cta mb-3">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-text-muted italic mb-4">"Hele leuke speeltuin, die een bezoekje aan Megen met kinderen absoluut de moeite waard maakt!"</p>
+                        <p class="text-sm font-semibold text-text-main">Joyce Blaas - Franken</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerij -->
+        <section class="py-16 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+            <h2 class="font-heading text-3xl text-text-main text-center mb-8">Foto's</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <img src="images/google_place_3.jpg" alt="Speeltuin foto" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+                <img src="images/speeltuin-4.jpg" alt="Speeltoestellen" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+                <img src="images/speeltuin-5.jpg" alt="Speeltuin natuur" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+                <img src="images/google_place_4.jpg" alt="Speeltuin overzicht" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+                <img src="images/natuur-2.jpg" alt="Natuur bij de speeltuin" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+                <img src="images/kasteel.jpg" alt="Kasteel in de speeltuin" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+                <img src="images/google_place_5.jpg" alt="Speeltuin" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+                <img src="images/klimop-1.jpg" alt="Vergroening" class="rounded-card shadow-soft w-full h-40 md:h-52 object-cover cursor-pointer hover:shadow-soft-hover transition-all duration-200 lightbox-img" loading="lazy">
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 bg-primary">
+            <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+                <h2 class="font-heading text-3xl text-white mb-4">Wil je helpen?</h2>
+                <p class="text-white/80 mb-8 max-w-2xl mx-auto">We kunnen alle hulp gebruiken — zowel tijdens de opbouw als voor het onderhoud. Je hoeft niet handig te zijn of groene vingers te hebben!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="helpen.html" class="inline-flex items-center justify-center px-6 py-3 bg-cta text-text-main font-bold rounded-soft hover:bg-cta-hover transition-colors duration-200 cursor-pointer min-h-[44px]">Ik wil helpen!</a>
+                    <a href="contact.html" class="inline-flex items-center justify-center px-6 py-3 bg-white/20 text-white font-semibold rounded-soft border-2 border-white/40 hover:bg-white/30 transition-colors duration-200 cursor-pointer min-h-[44px]">Neem contact op</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-text-main text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-heading text-lg mb-4">Natuurspeeltuin Megen</h3>
+                    <p class="text-white/70 text-sm mb-2">Stichting Natuurlijk Bewegen Megen Haren Macharen</p>
+                    <p class="text-white/70 text-sm mb-1">Maasdijk 34, 5366 AB Megen</p>
+                    <p class="text-white/70 text-sm mb-1">Tel: 06 37618593</p>
+                    <p class="text-white/70 text-sm mb-1">Email: natuurspeeltuinmegen@gmail.com</p>
+                    <p class="text-white/70 text-sm">KvK: 67251374 | RSIN: 856896433</p>
+                </div>
+                <div>
+                    <h3 class="font-heading text-lg mb-4">Ontdekken</h3>
+                    <nav class="flex flex-col gap-2" aria-label="Footer navigatie">
+                        <a href="de-natuurspeeltuin.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">De Speeltuin</a>
+                        <a href="bewegingsroute.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Bewegingsroute</a>
+                        <a href="doe-kaarten.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Doe-kaarten</a>
+                        <a href="kinderroute.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Kinderroute</a>
+                        <a href="natuurroute.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Natuur & Educatie</a>
+                        <a href="activiteiten.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Activiteiten</a>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="font-heading text-lg mb-4">Meedoen</h3>
+                    <nav class="flex flex-col gap-2" aria-label="Meedoen navigatie">
+                        <a href="helpen.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Helpen?</a>
+                        <a href="sponsors.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Sponsors</a>
+                        <a href="samenwerkingen.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Samenwerkingen</a>
+                        <a href="toegankelijkheid.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Toegankelijkheid</a>
+                        <a href="zelf-initiatief.html" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Zelf starten</a>
+                        <a href="https://www.facebook.com/natuurspeeltuinmegen" target="_blank" rel="noopener" class="text-white/70 text-sm hover:text-white transition-colors duration-200 cursor-pointer">Facebook</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/50 text-xs">NL30 RABO 0314 1294 56 | Opgericht 8 november 2016</p>
+                <p class="text-white/50 text-xs">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white transition-colors duration-200 cursor-pointer underline" target="_blank" rel="noopener">Code Lieshout</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center cursor-pointer" role="dialog" aria-label="Foto weergave">
+        <button class="absolute top-4 right-4 text-white text-4xl cursor-pointer p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:text-cta transition-colors duration-200" aria-label="Sluiten">&times;</button>
+        <img id="lightboxImg" class="max-w-[90vw] max-h-[90vh] object-contain rounded-soft" alt="Vergroot beeld">
+    </div>
+
+    <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); mobileMenu.setAttribute('aria-hidden','false'); menuBtn.setAttribute('aria-expanded','true'); });
+        closeMenuBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.setAttribute('aria-hidden','true'); menuBtn.setAttribute('aria-expanded','false'); });
+        mobileMenu.addEventListener('click', (e) => { if(e.target===mobileMenu) { mobileMenu.classList.add('hidden'); mobileMenu.setAttribute('aria-hidden','true'); menuBtn.setAttribute('aria-expanded','false'); }});
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        document.querySelectorAll('.lightbox-img').forEach(img => {
+            img.addEventListener('click', () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.remove('hidden'); lightbox.classList.add('flex'); });
+        });
+        lightbox.addEventListener('click', () => { lightbox.classList.add('hidden'); lightbox.classList.remove('flex'); });
+        document.addEventListener('keydown', (e) => { if(e.key==='Escape') { lightbox.classList.add('hidden'); lightbox.classList.remove('flex'); }});
+    </script>
+</body>
+</html>
